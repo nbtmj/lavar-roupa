@@ -1,0 +1,30 @@
+def lavar_roupa(roupa: int) -> int | None:
+  if roupa > 40:
+    print('A máquina não comporta tanta roupa!')
+    return None
+  tempo_lavagem = 2 * roupa
+  tempo_molho = 20
+  qntt_enxague = roupa // 5
+  tempo_enxague = qntt_enxague * 5
+  tempo_centrifuga = 15
+  return tempo_lavagem + tempo_molho + tempo_enxague + tempo_centrifuga
+
+def secar_roupa(clima):
+  if clima == "seco":
+    horas = 10
+  elif clima == "umido":
+    horas = 20
+  return horas
+
+def guardar_roupa(roupa):
+  tempo_guardar = roupa * 15
+  return tempo_guardar
+
+qntt_roupa = int(input('Quanta roupa vc vai lavar? '))
+if lavar_roupa(qntt_roupa) != None:
+  print(f'O tempo de lavagem é de {lavar_roupa(qntt_roupa)} minutos')
+
+  clima = input(f'O clima está seco ou está úmido hoje? ')
+  print(f'A roupa levará {secar_roupa(clima)} horas para secar')
+
+  print(f'Você irá levar {guardar_roupa(qntt_roupa)/60} minutos para guardar a roupa')
